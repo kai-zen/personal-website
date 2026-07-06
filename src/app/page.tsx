@@ -1,4 +1,4 @@
-import { HeroSection, Topbar } from "@/sections/home";
+import { HeroSection, HighlightsSection, Topbar } from "@/sections/home";
 import { FC } from "react";
 
 const Home: FC = () => {
@@ -6,6 +6,7 @@ const Home: FC = () => {
     <div>
       <Topbar />
       <HeroSection />
+      <HighlightsSection />
     </div>
   );
 };
