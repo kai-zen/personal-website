@@ -13,11 +13,11 @@ export interface IHighlightStat {
 
 const HIGHLIGHTS_STATS: IHighlightStat[] = [
   {
-    value: "5+",
+    value: "6+",
     label: "Years shipping",
     description: "Production systems across backend, web, and infrastructure.",
     icon: Code2,
-    className: "sm:col-span-2 lg:col-span-6",
+    className: "col-span-2 sm:col-span-2 lg:col-span-6",
     featured: true,
   },
   {
@@ -38,7 +38,7 @@ const HIGHLIGHTS_STATS: IHighlightStat[] = [
 
 const HighlightsStats: FC = () => {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12">
+    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-12">
       {HIGHLIGHTS_STATS.map((stat) => (
         <StatCard key={stat.label} data={stat} />
       ))}
