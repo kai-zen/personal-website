@@ -1,6 +1,7 @@
 import { cn } from "@/shared/config/functions";
 import "./globals.css";
 import { fontSans } from "@/shared/config/fonts";
+import { ThemeProvider } from "@/shared/providers/ThemeProvider";
 import { Metadata } from "next";
 import { FC, ReactNode } from "react";
 
@@ -13,8 +14,11 @@ const RootLayout: FC<Props> = ({ children }) => {
     <html
       lang="en"
       className={cn("h-full antialiased font-sans", fontSans.variable)}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 };
