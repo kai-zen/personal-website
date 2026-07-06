@@ -30,7 +30,7 @@ const Topbar = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 backdrop-blur-md dark:border-gray-800">
-      <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand */}
         <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
           <Typography variant="brand">Ali Razipour.</Typography>
@@ -55,7 +55,13 @@ const Topbar = () => {
             )}
           </IconButton>
 
-          <Button href="/resume.pdf" external className="hidden md:inline-flex">
+          <Button
+            href="/resume.pdf"
+            external
+            arrow
+            size="sm"
+            className="hidden md:inline-flex"
+          >
             Resume
           </Button>
 
@@ -96,6 +102,7 @@ const Topbar = () => {
             <Button
               href="/resume.pdf"
               external
+              arrow
               fullWidth
               onClick={() => setIsMobileMenuOpen(false)}
             >
