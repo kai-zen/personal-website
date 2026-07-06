@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { FC, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const Topbar = () => {
+const Topbar: FC = () => {
   const { resolvedTheme, setTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
   const mounted = useSyncExternalStore(
