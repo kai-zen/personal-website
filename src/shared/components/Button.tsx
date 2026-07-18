@@ -78,8 +78,7 @@ const Button: FC<Props> = ({
 
   if (href) {
     const { onClick } = props;
-    const isMailOrTel =
-      href.startsWith("mailto:") || href.startsWith("tel:");
+    const isMailOrTel = href.startsWith("mailto:") || href.startsWith("tel:");
 
     if (download) {
       return (
@@ -87,7 +86,7 @@ const Button: FC<Props> = ({
           href={href}
           download={download === true ? undefined : download}
           className={classes}
-          onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
+          onClick={onClick as unknown as MouseEventHandler<HTMLAnchorElement>}
         >
           <ButtonContent arrow={arrow} external={external}>
             {children}
@@ -101,7 +100,7 @@ const Button: FC<Props> = ({
         <a
           href={href}
           className={classes}
-          onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
+          onClick={onClick as unknown as MouseEventHandler<HTMLAnchorElement>}
         >
           <ButtonContent arrow={arrow} external>
             {children}
@@ -117,7 +116,7 @@ const Button: FC<Props> = ({
           target="_blank"
           rel="noopener noreferrer"
           className={classes}
-          onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
+          onClick={onClick as unknown as MouseEventHandler<HTMLAnchorElement>}
         >
           <ButtonContent arrow={arrow} external>
             {children}
@@ -127,7 +126,11 @@ const Button: FC<Props> = ({
     }
 
     return (
-      <Link href={href} className={classes} onClick={onClick}>
+      <Link
+        href={href}
+        className={classes}
+        onClick={onClick as unknown as MouseEventHandler<HTMLAnchorElement>}
+      >
         <ButtonContent arrow={arrow}>{children}</ButtonContent>
       </Link>
     );
