@@ -11,7 +11,7 @@ const SKILLS = [
 const FocusAreas: FC = () => {
   return (
     <div>
-      <p className="mb-3 text-sm font-medium uppercase text-gray-400">
+      <p className="mb-3 text-sm font-medium uppercase text-gray-500">
         Focus areas
       </p>
       <ul className="flex flex-wrap gap-2">

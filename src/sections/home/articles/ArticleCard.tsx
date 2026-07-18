@@ -84,7 +84,7 @@ const ArticleCard: FC<Props> = ({ article, featured = false, className }) => {
           featured ? "sm:p-8" : "sm:justify-start sm:p-6",
         )}
       >
-        <div className="mb-1.5 flex items-center gap-2 text-[0.625rem] text-gray-500 sm:mb-4 sm:gap-2.5 sm:text-xs dark:text-gray-500">
+        <div className="mb-1.5 flex items-center gap-2 text-[0.625rem] text-gray-500 sm:mb-4 sm:gap-2.5 sm:text-xs dark:text-gray-400">
           <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>
           <span
             aria-hidden

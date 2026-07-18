@@ -85,7 +85,7 @@ const ExperienceItem: FC<Props> = ({
                   aria-hidden
                   className="hidden h-0.5 w-0.5 rounded-full bg-gray-300 sm:inline-block dark:bg-gray-600"
                 />
-                <span className="hidden font-mono text-[0.6875rem] text-gray-400 sm:inline dark:text-gray-500">
+                <span className="hidden font-mono text-[0.6875rem] text-gray-500 sm:inline dark:text-gray-400">
                   {step}
                 </span>
               </div>

@@ -68,7 +68,7 @@ const StatCard: FC<Props> = ({ data }) => {
 
           <Typography
             as="p"
-            className="mt-2 text-xs leading-5 text-gray-600 sm:mt-2 sm:max-w-sm sm:text-sm sm:leading-6 dark:text-gray-400"
+            className="mt-2 text-xs leading-5 text-gray-600 sm:mt-2 sm:max-w-sm sm:text-sm sm:leading-6 dark:text-gray-300"
           >
             {description}
           </Typography>
