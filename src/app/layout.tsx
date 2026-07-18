@@ -3,8 +3,8 @@ import "./globals.css";
 import { fontSans } from "@/shared/config/fonts";
 import { ThemeProvider } from "@/shared/providers/ThemeProvider";
 import { CustomCursor } from "@/shared/components";
-import { Metadata } from "next";
 import { FC, ReactNode } from "react";
+import { Topbar } from "@/sections/layout";
 
 type Props = Readonly<{
   children: ReactNode;
@@ -20,6 +20,7 @@ const RootLayout: FC<Props> = ({ children }) => {
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
           <CustomCursor />
+          <Topbar />
           {children}
         </ThemeProvider>
       </body>

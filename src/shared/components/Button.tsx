@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from "react";
+import { ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { cn } from "@/shared/config/functions";
@@ -24,6 +24,7 @@ const variants: Record<Variant, string> = {
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   external?: boolean;
+  download?: boolean | string;
   fullWidth?: boolean;
   variant?: Variant;
   size?: Size;
@@ -59,6 +60,7 @@ const Button: FC<Props> = ({
   children,
   href,
   external,
+  download,
   fullWidth,
   variant = "primary",
   size = "md",
@@ -75,6 +77,23 @@ const Button: FC<Props> = ({
   );
 
   if (href) {
+    const { onClick } = props;
+
+    if (download) {
+      return (
+        <a
+          href={href}
+          download={download === true ? undefined : download}
+          className={classes}
+          onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
+        >
+          <ButtonContent arrow={arrow} external={external}>
+            {children}
+          </ButtonContent>
+        </a>
+      );
+    }
+
     if (external) {
       return (
         <a
@@ -82,6 +101,7 @@ const Button: FC<Props> = ({
           target="_blank"
           rel="noopener noreferrer"
           className={classes}
+          onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
         >
           <ButtonContent arrow={arrow} external>
             {children}
@@ -91,7 +111,7 @@ const Button: FC<Props> = ({
     }
 
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         <ButtonContent arrow={arrow}>{children}</ButtonContent>
       </Link>
     );

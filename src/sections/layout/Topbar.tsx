@@ -13,6 +13,9 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
+const RESUME_FILENAME = "Full Stack Developer - Ali Razipour.pdf";
+const RESUME_HREF = encodeURI(`/${RESUME_FILENAME}`);
+
 const Topbar: FC = () => {
   const { resolvedTheme, setTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
@@ -56,7 +59,8 @@ const Topbar: FC = () => {
           </IconButton>
 
           <Button
-            href="/resume.pdf"
+            href={RESUME_HREF}
+            download={RESUME_FILENAME}
             external
             arrow
             size="sm"
@@ -100,7 +104,8 @@ const Topbar: FC = () => {
 
           <div className="pt-2">
             <Button
-              href="/resume.pdf"
+              href={RESUME_HREF}
+              download={RESUME_FILENAME}
               external
               arrow
               fullWidth
