@@ -55,7 +55,7 @@ const ArticlesSection: FC = () => {
               learning in public.
             </Typography>
 
-            <Button href="/articles" variant="outlined" size="sm" arrow>
+            <Button href="/articles" variant="primary" size="sm" arrow>
               View all
             </Button>
           </div>
@@ -69,7 +69,7 @@ const ArticlesSection: FC = () => {
         </div>
 
         <div className="mt-6 flex justify-center sm:hidden">
-          <Button href="/articles" variant="outlined" size="sm" arrow>
+          <Button href="/articles" variant="primary" size="sm" arrow>
             View all articles
           </Button>
         </div>
