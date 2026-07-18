@@ -78,6 +78,8 @@ const Button: FC<Props> = ({
 
   if (href) {
     const { onClick } = props;
+    const isMailOrTel =
+      href.startsWith("mailto:") || href.startsWith("tel:");
 
     if (download) {
       return (
@@ -88,6 +90,20 @@ const Button: FC<Props> = ({
           onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
         >
           <ButtonContent arrow={arrow} external={external}>
+            {children}
+          </ButtonContent>
+        </a>
+      );
+    }
+
+    if (isMailOrTel) {
+      return (
+        <a
+          href={href}
+          className={classes}
+          onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
+        >
+          <ButtonContent arrow={arrow} external>
             {children}
           </ButtonContent>
         </a>

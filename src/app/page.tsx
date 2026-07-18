@@ -1,5 +1,6 @@
 import {
   ArticlesSection,
+  ContactSection,
   ExperiencesSection,
   HeroSection,
   HighlightsSection,
@@ -13,6 +14,7 @@ const Home: FC = () => {
       <HighlightsSection />
       <ArticlesSection />
       <ExperiencesSection />
+      <ContactSection />
     </div>
   );
 };
