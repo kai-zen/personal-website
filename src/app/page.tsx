@@ -1,5 +1,6 @@
 import {
   ArticlesSection,
+  ExperiencesSection,
   HeroSection,
   HighlightsSection,
 } from "@/sections/home";
@@ -11,6 +12,7 @@ const Home: FC = () => {
       <HeroSection />
       <HighlightsSection />
       <ArticlesSection />
+      <ExperiencesSection />
     </div>
   );
 };
