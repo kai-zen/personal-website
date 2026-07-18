@@ -4,7 +4,7 @@ import { fontSans } from "@/shared/config/fonts";
 import { ThemeProvider } from "@/shared/providers/ThemeProvider";
 import { CustomCursor } from "@/shared/components";
 import { FC, ReactNode } from "react";
-import { Topbar } from "@/sections/layout";
+import { Footer, Topbar } from "@/sections/layout";
 
 type Props = Readonly<{
   children: ReactNode;
@@ -21,7 +21,8 @@ const RootLayout: FC<Props> = ({ children }) => {
         <ThemeProvider>
           <CustomCursor />
           <Topbar />
-          {children}
+          <main className="flex-1">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
