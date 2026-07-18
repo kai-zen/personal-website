@@ -129,6 +129,7 @@ const Button: FC<Props> = ({
       <Link
         href={href}
         className={classes}
+        prefetch={false}
         onClick={onClick as unknown as MouseEventHandler<HTMLAnchorElement>}
       >
         <ButtonContent arrow={arrow}>{children}</ButtonContent>

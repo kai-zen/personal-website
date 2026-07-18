@@ -35,14 +35,18 @@ const Topbar: FC = () => {
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 backdrop-blur-md dark:border-gray-800">
       <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand */}
-        <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+        <Link
+          href="/"
+          prefetch={false}
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
           <Typography variant="brand">Ali Razipour.</Typography>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <Link key={link.label} href={link.href}>
+            <Link key={link.label} href={link.href} prefetch={false}>
               <Typography variant="nav">{link.label}</Typography>
             </Link>
           ))}
@@ -96,6 +100,7 @@ const Topbar: FC = () => {
             <Link
               key={link.label}
               href={link.href}
+              prefetch={false}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <Typography variant="navMobile">{link.label}</Typography>

@@ -61,6 +61,7 @@ const ArticleCard: FC<Props> = ({ article, featured = false, className }) => {
   return (
     <Link
       href={`/articles/${slug}`}
+      prefetch={false}
       className={cn(
         "group relative flex overflow-hidden rounded-xl border border-gray-200/80 bg-white/70 backdrop-blur-sm transition-all duration-300 sm:rounded-2xl dark:border-white/10 dark:bg-white/3",
         "sm:hover:-translate-y-0.5 sm:hover:border-gray-300 sm:hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.18)] dark:sm:hover:border-white/20 dark:sm:hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.6)]",
