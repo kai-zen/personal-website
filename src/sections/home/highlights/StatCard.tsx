@@ -47,7 +47,7 @@ const StatCard: FC<Props> = ({ data }) => {
               <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
             </span>
 
-            <span className="text-[0.625rem] font-medium uppercase tracking-[0.2em] text-gray-400 sm:text-[0.6875rem] sm:tracking-[0.22em]">
+            <span className="text-[0.625rem] font-medium uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 sm:text-[0.6875rem] sm:tracking-[0.22em]">
               Core metric
             </span>
           </div>
