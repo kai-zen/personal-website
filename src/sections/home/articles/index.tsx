@@ -34,7 +34,7 @@ const ArticlesSection: FC = () => {
             >
               Notes from&nbsp;
               <span className="bg-linear-to-r from-gray-950 via-gray-500 to-gray-400 bg-clip-text font-light italic text-transparent dark:from-gray-100 dark:via-gray-500 dark:to-gray-600">
-                building
+                building&nbsp;
               </span>
             </Typography>
 
