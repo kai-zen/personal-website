@@ -6,10 +6,11 @@ import {
 import ArticleHeader from "@/sections/articles/ArticleHeader";
 import ArticleJsonLd from "@/sections/articles/ArticleJsonLd";
 import MarkdownContent from "@/sections/articles/MarkdownContent";
-import { Button, Typography } from "@/shared/components";
+import { Breadcrumbs, Typography } from "@/shared/components";
+import { cn } from "@/shared/config/functions";
 import { siteConfig } from "@/shared/config/site";
 import type { IArticle } from "@/shared/config/types";
-import type { Metadata } from "next";
+import type { Metadata, NextPage } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FC } from "react";
@@ -70,7 +71,10 @@ const AdjacentLink: FC<{
   <Link
     href={`/articles/${article.slug}`}
     prefetch={false}
-    className={`group flex min-w-0 flex-col gap-1 ${align === "end" ? "items-end text-right" : "items-start"}`}
+    className={cn(
+      "group flex min-w-0 flex-col gap-1",
+      align === "end" ? "items-end text-left" : "items-start",
+    )}
   >
     <span className="text-[0.625rem] font-medium uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
       {label}
@@ -84,7 +88,7 @@ const AdjacentLink: FC<{
   </Link>
 );
 
-const ArticlePage: FC<Props> = async ({ params }) => {
+const ArticlePage: NextPage<Props> = async ({ params }) => {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
 
@@ -102,14 +106,14 @@ const ArticlePage: FC<Props> = async ({ params }) => {
     <>
       <ArticleJsonLd article={article} />
       <article className="mx-auto max-w-3xl px-6 py-10 sm:py-14">
-        <Button
-          href="/articles"
-          variant="text"
-          size="sm"
-          className="-ml-4 mb-8 sm:mb-10"
-        >
-          All articles
-        </Button>
+        <Breadcrumbs
+          className="mb-8 sm:mb-10"
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Articles", href: "/articles" },
+            { label: article.title, href: `/articles/${article.slug}` },
+          ]}
+        />
 
         <ArticleHeader article={article} />
         <MarkdownContent content={article.content} />

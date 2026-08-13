@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { FC, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { cn } from "@/shared/config/functions";
 
 const RING_LERP = 0.14;
@@ -27,7 +27,7 @@ const getCursorPreference = () => {
   return hasFinePointer && !prefersReducedMotion;
 };
 
-const CustomCursor = () => {
+const CustomCursor: FC = () => {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);

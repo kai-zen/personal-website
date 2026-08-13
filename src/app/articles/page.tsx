@@ -1,6 +1,6 @@
 import { getAllArticles } from "@/content/articles";
 import ArticleCard from "@/sections/home/articles/ArticleCard";
-import { Typography } from "@/shared/components";
+import { Breadcrumbs, Typography } from "@/shared/components";
 import { siteConfig } from "@/shared/config/site";
 import type { Metadata } from "next";
 import type { NextPage } from "next";
@@ -32,6 +32,14 @@ const ArticlesPage: NextPage = async () => {
 
   return (
     <section className="relative mx-auto max-w-6xl px-6 py-10 sm:py-14">
+      <Breadcrumbs
+        className="mb-8 sm:mb-10"
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Articles", href: "/articles" },
+        ]}
+      />
+
       <div className="mb-6 max-w-2xl sm:mb-12 lg:mb-14">
         <div className="mb-3 flex items-center gap-2.5 sm:mb-4 sm:gap-3">
           <span
