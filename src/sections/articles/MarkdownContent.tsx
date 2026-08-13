@@ -46,7 +46,7 @@ const markdownComponents: Components = {
         width={768}
         height={432}
         sizes="(min-width: 768px) 768px, calc(100vw - 3rem)"
-        className="mx-auto h-auto w-full max-w-3xl rounded-xl"
+        className="mx-auto h-auto w-full max-w-3xl rounded-xl border border-gray-200/80 bg-linear-to-br from-gray-50 via-white to-gray-100/80 shadow-[0_20px_40px_-28px_rgba(0,0,0,0.18)] sm:mt-10 dark:border-white/10 dark:from-white/8 dark:via-white/3 dark:to-white/6 dark:shadow-[0_20px_40px_-28px_rgba(0,0,0,0.65)]"
       />
     );
   },

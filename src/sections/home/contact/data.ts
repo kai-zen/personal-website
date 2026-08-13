@@ -3,7 +3,7 @@ export interface SocialLink {
   href: string;
 }
 
-export const contactEmail = "reazipurali@gmail.com";
+export const contactEmail = "razipurali@gmail.com";
 
 export const socialLinks: SocialLink[] = [
   {

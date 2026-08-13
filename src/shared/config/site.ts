@@ -11,7 +11,7 @@ export const siteConfig = {
   locale: "en_US",
   author: {
     name: "Ali Razipour",
-    email: "reazipurali@gmail.com",
+    email: "razipurali@gmail.com",
     url: siteUrl,
   },
   keywords: [
