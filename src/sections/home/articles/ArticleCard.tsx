@@ -11,6 +11,7 @@ interface Props {
   featured?: boolean;
   titleAs?: "h2" | "h3";
   className?: string;
+  eagerLoading?: boolean;
 }
 
 const ArticleCard: FC<Props> = ({
@@ -18,6 +19,7 @@ const ArticleCard: FC<Props> = ({
   featured = false,
   titleAs = "h3",
   className,
+  eagerLoading = false,
 }) => {
   const {
     slug,
@@ -53,7 +55,7 @@ const ArticleCard: FC<Props> = ({
           tag={primaryTag}
           featured={featured}
           coverImage={coverImage}
-          eagerLoading={featured}
+          eagerLoading={eagerLoading}
         />
       </div>
 
