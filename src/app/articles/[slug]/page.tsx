@@ -3,17 +3,17 @@ import {
   getArticleBySlug,
   getArticleSlugs,
 } from "@/content/articles";
-import ArticleHeader from "@/sections/articles/ArticleHeader";
-import ArticleJsonLd from "@/sections/articles/ArticleJsonLd";
-import MarkdownContent from "@/sections/articles/MarkdownContent";
-import { Breadcrumbs, Typography } from "@/shared/components";
-import { cn } from "@/shared/config/functions";
+import {
+  AdjacentArticles,
+  ArticleHeader,
+  ArticleJsonLd,
+  MarkdownContent,
+  ReadingProgress,
+} from "@/sections/articles";
+import { Breadcrumbs } from "@/shared/components";
 import { siteConfig } from "@/shared/config/site";
-import type { IArticle } from "@/shared/config/types";
 import type { Metadata, NextPage } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FC } from "react";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -63,31 +63,6 @@ export const generateMetadata = async ({
   };
 };
 
-const AdjacentLink: FC<{
-  label: string;
-  article: IArticle;
-  align?: "start" | "end";
-}> = ({ label, article, align = "start" }) => (
-  <Link
-    href={`/articles/${article.slug}`}
-    prefetch={false}
-    className={cn(
-      "group flex min-w-0 flex-col gap-1",
-      align === "end" ? "items-end text-left" : "items-start",
-    )}
-  >
-    <span className="text-[0.625rem] font-medium uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
-      {label}
-    </span>
-    <Typography
-      as="span"
-      className="text-sm font-medium text-gray-950 transition-colors group-hover:text-gray-600 dark:text-white dark:group-hover:text-gray-300"
-    >
-      {article.title}
-    </Typography>
-  </Link>
-);
-
 const ArticlePage: NextPage<Props> = async ({ params }) => {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
@@ -105,7 +80,11 @@ const ArticlePage: NextPage<Props> = async ({ params }) => {
   return (
     <>
       <ArticleJsonLd article={article} />
-      <article className="mx-auto max-w-3xl px-6 py-10 sm:py-14">
+      <ReadingProgress />
+      <article
+        data-reading-progress
+        className="relative mx-auto max-w-6xl px-6 py-10 sm:py-14"
+      >
         <Breadcrumbs
           className="mb-8 sm:mb-10"
           items={[
@@ -118,21 +97,7 @@ const ArticlePage: NextPage<Props> = async ({ params }) => {
         <ArticleHeader article={article} />
         <MarkdownContent content={article.content} />
 
-        {(newer || older) && (
-          <nav
-            aria-label="Adjacent articles"
-            className="mt-14 grid grid-cols-1 gap-6 border-t border-gray-200/80 pt-8 sm:grid-cols-2 dark:border-white/10"
-          >
-            {older ? (
-              <AdjacentLink label="Previous" article={older} />
-            ) : (
-              <span />
-            )}
-            {newer ? (
-              <AdjacentLink label="Next" article={newer} align="end" />
-            ) : null}
-          </nav>
-        )}
+        <AdjacentArticles older={older} newer={newer} />
       </article>
     </>
   );

@@ -86,10 +86,12 @@ html.custom-cursor * {
   padding: 1rem;
   font-size: 0.8125rem;
   line-height: 1.6;
+  color: rgb(17 24 39);
 }
 
 .dark .article-prose figure[data-rehype-pretty-code-figure] pre {
   background: rgb(255 255 255 / 0.04);
+  color: rgb(229 231 235);
 }
 
 .article-prose figure[data-rehype-pretty-code-figure] code {
@@ -107,12 +109,12 @@ html.custom-cursor * {
 
 code[data-theme*=" "],
 code[data-theme*=" "] span {
-  color: var(--shiki-light);
+  color: var(--shiki-light, inherit);
 }
 
 .dark code[data-theme*=" "],
 .dark code[data-theme*=" "] span {
-  color: var(--shiki-dark);
+  color: var(--shiki-dark, inherit);
 }
 
 .article-prose [data-line] {

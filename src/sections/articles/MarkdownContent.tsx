@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FC } from "react";
 import { MarkdownAsync, type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
@@ -63,11 +64,9 @@ interface Props {
   content: string;
 }
 
-const MarkdownContent = async ({ content }: Props) => {
+const MarkdownContent: FC<Props> = async ({ content }) => {
   return (
-    <div
-      className="article-prose prose prose-neutral max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-gray-950 dark:prose-headings:text-white prose-p:leading-7 prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-a:font-medium prose-a:text-gray-950 prose-a:underline prose-a:decoration-gray-300 prose-a:underline-offset-4 hover:prose-a:decoration-gray-950 dark:prose-a:text-white dark:prose-a:decoration-white/25 dark:hover:prose-a:decoration-white prose-strong:text-gray-950 dark:prose-strong:text-white prose-code:rounded-md prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:text-gray-950 prose-code:before:content-none prose-code:after:content-none dark:prose-code:bg-white/8 dark:prose-code:text-white prose-pre:bg-transparent prose-pre:p-0 prose-blockquote:border-gray-300 prose-blockquote:text-gray-600 dark:prose-blockquote:border-white/20 dark:prose-blockquote:text-gray-400 prose-hr:border-gray-200 dark:prose-hr:border-white/10 prose-li:text-gray-600 dark:prose-li:text-gray-400 prose-th:text-gray-950 dark:prose-th:text-white prose-td:text-gray-600 dark:prose-td:text-gray-400 prose-img:rounded-xl"
-    >
+    <div className="article-prose prose prose-neutral max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-gray-950 dark:prose-headings:text-white prose-p:leading-7 prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-a:font-medium prose-a:text-gray-950 prose-a:underline prose-a:decoration-gray-300 prose-a:underline-offset-4 hover:prose-a:decoration-gray-950 dark:prose-a:text-white dark:prose-a:decoration-white/25 dark:hover:prose-a:decoration-white prose-strong:text-gray-950 dark:prose-strong:text-white prose-code:rounded-md prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:text-gray-950 prose-code:before:content-none prose-code:after:content-none dark:prose-code:bg-white/8 dark:prose-code:text-white prose-pre:bg-transparent prose-pre:p-0 prose-blockquote:border-gray-300 prose-blockquote:text-gray-600 dark:prose-blockquote:border-white/20 dark:prose-blockquote:text-gray-400 prose-hr:border-gray-200 dark:prose-hr:border-white/10 prose-li:text-gray-600 dark:prose-li:text-gray-400 prose-th:text-gray-950 dark:prose-th:text-white prose-td:text-gray-600 dark:prose-td:text-gray-400 prose-img:rounded-xl">
       <MarkdownAsync
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[
