@@ -37,25 +37,16 @@ const markdownComponents: Components = {
     );
   },
   img: ({ src, alt }) => {
-    if (!src || typeof src !== "string") {
-      return null;
-    }
-
-    if (src.startsWith("http://") || src.startsWith("https://")) {
-      return (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={alt ?? ""} className="h-auto w-full rounded-xl" />
-      );
-    }
+    if (!src || typeof src !== "string") return null;
 
     return (
       <Image
         src={src}
         alt={alt ?? ""}
-        width={1100}
-        height={618}
-        quality={100}
-        className="h-auto w-full rounded-xl"
+        width={768}
+        height={432}
+        sizes="(min-width: 768px) 768px, calc(100vw - 3rem)"
+        className="mx-auto h-auto w-full max-w-3xl rounded-xl"
       />
     );
   },

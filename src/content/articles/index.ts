@@ -155,7 +155,12 @@ export const getArticleSlugs = async (): Promise<string[]> => {
 export const getArticleBySlug = async (
   slug: string,
 ): Promise<IArticle | null> => {
-  if (!slug || slug.startsWith("_") || slug.includes("..") || /[\\/]/.test(slug)) {
+  if (
+    !slug ||
+    slug.startsWith("_") ||
+    slug.includes("..") ||
+    /[\\/]/.test(slug)
+  ) {
     return null;
   }
 
