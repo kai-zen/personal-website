@@ -47,6 +47,7 @@ const ArticleCard: FC<Props> = ({ article, featured = false, className }) => {
           tag={primaryTag}
           featured={featured}
           coverImage={coverImage}
+          eagerLoading={featured}
         />
       </div>
 
