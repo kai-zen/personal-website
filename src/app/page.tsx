@@ -5,9 +5,9 @@ import {
   HeroSection,
   HighlightsSection,
 } from "@/sections/home";
-import { FC } from "react";
+import type { NextPage } from "next";
 
-const Home: FC = () => {
+const Home: NextPage = () => {
   return (
     <div>
       <HeroSection />

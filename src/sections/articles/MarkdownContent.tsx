@@ -1,0 +1,95 @@
+import Image from "next/image";
+import Link from "next/link";
+import { MarkdownAsync, type Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
+import { prettyCodeOptions } from "./prettyCode";
+
+const isInternalHref = (href: string) =>
+  href.startsWith("/") || href.startsWith("#");
+
+const markdownComponents: Components = {
+  a: ({ href, children, className }) => {
+    if (!href) {
+      return <span className={className}>{children}</span>;
+    }
+
+    if (isInternalHref(href)) {
+      return (
+        <Link href={href} className={className}>
+          {children}
+        </Link>
+      );
+    }
+
+    return (
+      <a
+        href={href}
+        className={className}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  },
+  img: ({ src, alt }) => {
+    if (!src || typeof src !== "string") {
+      return null;
+    }
+
+    if (src.startsWith("http://") || src.startsWith("https://")) {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt={alt ?? ""} className="h-auto w-full rounded-xl" />
+      );
+    }
+
+    return (
+      <Image
+        src={src}
+        alt={alt ?? ""}
+        width={960}
+        height={540}
+        className="h-auto w-full rounded-xl"
+      />
+    );
+  },
+};
+
+interface Props {
+  content: string;
+}
+
+const MarkdownContent = async ({ content }: Props) => {
+  return (
+    <div
+      className="article-prose prose prose-neutral max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-gray-950 dark:prose-headings:text-white prose-p:leading-7 prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-a:font-medium prose-a:text-gray-950 prose-a:underline prose-a:decoration-gray-300 prose-a:underline-offset-4 hover:prose-a:decoration-gray-950 dark:prose-a:text-white dark:prose-a:decoration-white/25 dark:hover:prose-a:decoration-white prose-strong:text-gray-950 dark:prose-strong:text-white prose-code:rounded-md prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:text-gray-950 prose-code:before:content-none prose-code:after:content-none dark:prose-code:bg-white/8 dark:prose-code:text-white prose-pre:bg-transparent prose-pre:p-0 prose-blockquote:border-gray-300 prose-blockquote:text-gray-600 dark:prose-blockquote:border-white/20 dark:prose-blockquote:text-gray-400 prose-hr:border-gray-200 dark:prose-hr:border-white/10 prose-li:text-gray-600 dark:prose-li:text-gray-400 prose-th:text-gray-950 dark:prose-th:text-white prose-td:text-gray-600 dark:prose-td:text-gray-400 prose-img:rounded-xl"
+    >
+      <MarkdownAsync
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[
+          rehypeSlug,
+          [
+            rehypeAutolinkHeadings,
+            {
+              behavior: "append",
+              properties: {
+                className: ["heading-anchor"],
+                ariaLabel: "Link to this section",
+              },
+            },
+          ],
+          [rehypePrettyCode, prettyCodeOptions],
+        ]}
+        components={markdownComponents}
+      >
+        {content}
+      </MarkdownAsync>
+    </div>
+  );
+};
+
+export default MarkdownContent;

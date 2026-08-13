@@ -8,7 +8,7 @@ import { Button, IconButton, Typography } from "@/shared/components";
 import { cn } from "@/shared/config/functions";
 
 const NAV_LINKS = [
-  { label: "Articles", href: "#articles" },
+  { label: "Articles", href: "/articles" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];

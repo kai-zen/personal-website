@@ -1,12 +1,16 @@
 import { Button, Typography } from "@/shared/components";
-import { FC } from "react";
+import { getLatestArticles } from "@/content/articles";
 import ArticleCard from "./ArticleCard";
-import { mockArticles } from "./mock";
 
 const LATEST_COUNT = 3;
 
-const ArticlesSection: FC = () => {
-  const articles = mockArticles.slice(0, LATEST_COUNT);
+const ArticlesSection = async () => {
+  const articles = await getLatestArticles(LATEST_COUNT);
+
+  if (articles.length === 0) {
+    return null;
+  }
+
   const [featured, ...rest] = articles;
 
   return (

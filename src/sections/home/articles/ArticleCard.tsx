@@ -1,5 +1,5 @@
 import { Typography } from "@/shared/components";
-import { cn } from "@/shared/config/functions";
+import { cn, formatArticleDate } from "@/shared/config/functions";
 import { IArticleItem } from "@/shared/config/types";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
@@ -10,15 +10,6 @@ interface Props {
   featured?: boolean;
   className?: string;
 }
-
-const formatDate = (value: string) => {
-  const [year, month, day] = value.split("-").map(Number);
-  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-};
 
 const ArticleCover: FC<{ title: string; tag: string; featured?: boolean }> = ({
   title,
@@ -86,7 +77,7 @@ const ArticleCard: FC<Props> = ({ article, featured = false, className }) => {
         )}
       >
         <div className="mb-1.5 flex items-center gap-2 text-[0.625rem] text-gray-500 sm:mb-4 sm:gap-2.5 sm:text-xs dark:text-gray-400">
-          <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>
+          <time dateTime={publishedAt}>{formatArticleDate(publishedAt)}</time>
           <span
             aria-hidden
             className="h-0.5 w-0.5 rounded-full bg-gray-300 dark:bg-gray-600"

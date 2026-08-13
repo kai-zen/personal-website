@@ -2,10 +2,14 @@ export interface IArticleItem {
   slug: string;
   title: string;
   description: string;
-  coverImage: string;
+  coverImage?: string;
   publishedAt: string;
   readingTime: number;
   tags: string[];
+}
+
+export interface IArticle extends IArticleItem {
+  content: string;
 }
 
 export interface ExperienceItem {

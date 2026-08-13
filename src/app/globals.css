@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -28,4 +29,100 @@ body {
 html.custom-cursor,
 html.custom-cursor * {
   cursor: none !important;
+}
+
+/* articles styles */
+.article-prose .heading-anchor {
+  margin-inline-start: 0.4em;
+  font-weight: 500;
+  color: var(--color-gray-400);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.article-prose h2:hover .heading-anchor,
+.article-prose h3:hover .heading-anchor,
+.article-prose h4:hover .heading-anchor,
+.article-prose .heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+.article-prose :where(table) {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.article-prose figure[data-rehype-pretty-code-figure] {
+  margin-block: 1.5rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(229 231 235 / 0.8);
+}
+
+.dark .article-prose figure[data-rehype-pretty-code-figure] {
+  border-color: rgb(255 255 255 / 0.1);
+}
+
+.article-prose figcaption[data-rehype-pretty-code-title] {
+  border-bottom: 1px solid rgb(229 231 235 / 0.8);
+  background: rgb(249 250 251);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: rgb(107 114 128);
+}
+
+.dark .article-prose figcaption[data-rehype-pretty-code-title] {
+  border-bottom-color: rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.04);
+  color: rgb(156 163 175);
+}
+
+.article-prose figure[data-rehype-pretty-code-figure] pre {
+  margin: 0;
+  overflow-x: auto;
+  background: rgb(249 250 251);
+  padding: 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.dark .article-prose figure[data-rehype-pretty-code-figure] pre {
+  background: rgb(255 255 255 / 0.04);
+}
+
+.article-prose figure[data-rehype-pretty-code-figure] code {
+  display: grid;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  counter-reset: line;
+}
+
+.article-prose figure[data-rehype-pretty-code-figure] code,
+.article-prose figure[data-rehype-pretty-code-figure] code span {
+  background-color: transparent;
+}
+
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+}
+
+.dark code[data-theme*=" "],
+.dark code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+}
+
+.article-prose [data-line] {
+  padding-inline: 0.25rem;
+}
+
+.article-prose [data-highlighted-line] {
+  background: rgb(17 24 39 / 0.05);
+}
+
+.dark .article-prose [data-highlighted-line] {
+  background: rgb(255 255 255 / 0.06);
 }
