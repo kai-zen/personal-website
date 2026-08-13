@@ -11,10 +11,10 @@ Both APIs split a component into its own JavaScript chunk. The difference is wha
 
 Use `React.lazy` in a client-only React tree. Use `next/dynamic` in a Next.js app, especially when the component should skip SSR or needs a typed loading fallback.
 
-| API | SSR | Loading UI | Typical use |
-| --- | --- | --- | --- |
-| `React.lazy` | No (needs a client boundary) | `Suspense` | Client widgets, modals |
-| `next/dynamic` | Optional | `loading` or `Suspense` | App Router pages, heavy charts |
+| API            | SSR                          | Loading UI              | Typical use                    |
+| -------------- | ---------------------------- | ----------------------- | ------------------------------ |
+| `React.lazy`   | No (needs a client boundary) | `Suspense`              | Client widgets, modals         |
+| `next/dynamic` | Optional                     | `loading` or `Suspense` | App Router pages, heavy charts |
 
 ## React.lazy
 

@@ -4,6 +4,7 @@ description: "Copy this file, rename it, and fill in the frontmatter. Files that
 publishedAt: "2026-01-01"
 tags: ["Template"]
 draft: true
+coverImage: "/images/articles/your-cover.png"
 ---
 
 # Heading 1 (avoid this — the page already renders the title)
@@ -33,4 +34,6 @@ export const greet = (name: string) => {
 };
 ```
 
-![Optional local image](/images/articles/example.jpg)
+![Optional local image](/images/articles/your-cover.png)
+
+Cover images: put the file in `public/images/articles/`, set `coverImage` above, and paste the same path in a markdown figure. Generate new covers from `content/articles/image-prompt.json` — keep `style` and `constraints` fixed so they match the site UI, only change `subject`.
