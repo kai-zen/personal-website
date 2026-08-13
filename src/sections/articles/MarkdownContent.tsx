@@ -52,8 +52,9 @@ const markdownComponents: Components = {
       <Image
         src={src}
         alt={alt ?? ""}
-        width={960}
-        height={540}
+        width={1100}
+        height={618}
+        quality={100}
         className="h-auto w-full rounded-xl"
       />
     );

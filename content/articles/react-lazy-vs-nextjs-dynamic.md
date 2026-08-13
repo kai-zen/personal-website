@@ -3,7 +3,10 @@ title: "React.lazy vs Next.js dynamic(): Which One Should You Use?"
 description: "Learn the differences between React.lazy and Next.js dynamic imports, when SSR matters, and how to choose the right solution for your application."
 publishedAt: "2026-07-12"
 tags: ["React", "Next.js", "Performance"]
+coverImage: "/images/articles/react-lazy-vs-nextjs-dynamic.png"
 ---
+
+![React Lazy vs Next.js Dynamic](/images/articles/react-lazy-vs-nextjs-dynamic.png)
 
 Both APIs split a component into its own JavaScript chunk. The difference is what happens on the server, and what you get for free around loading states.
 

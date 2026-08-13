@@ -1,0 +1,21 @@
+---
+description: Image generation style guidelines for the portfolio project
+alwaysApply: true
+---
+
+# Image Generation Style
+
+When asked to generate images for this project (like article covers or UI assets), always use the following style parameters to ensure consistency with the app's clean, minimalist UI.
+
+```json
+{
+  "style": "ultra-minimalist, professional flat/wireframe design",
+  "resolution": "8k resolution, razor-sharp vector lines, crisp edges, flawless geometry",
+  "color_palette": "highly restricted: mostly shades of white, light gray, and dark slate, with no vibrant or neon colors",
+  "aesthetic": "sleek, corporate, modern UI aesthetic, clean SVG style, matching a clean glassmorphism web design"
+}
+```
+
+**Prompting Instructions:**
+Always append these exact keywords to your image generation prompts:
+`ultra-minimalist, professional flat vector design, 8k resolution, razor-sharp vector lines, crisp edges, flawless geometry, shades of white, light gray, and dark slate, no vibrant colors, sleek corporate modern UI aesthetic, clean SVG style`

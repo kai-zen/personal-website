@@ -3,7 +3,10 @@ title: "Building an Offline-First Restaurant SaaS"
 description: "How I designed a restaurant management system that keeps taking orders when the internet drops, then syncs without losing or duplicating data."
 publishedAt: "2026-08-05"
 tags: ["Case Study", "Architecture", "Offline First"]
+coverImage: "/images/articles/offline-first-restaurant-saas.png"
 ---
+
+![Offline-First Architecture](/images/articles/offline-first-restaurant-saas.png)
 
 Restaurants do not pause when the Wi-Fi does. Orders still come in, printers still have to fire, and the kitchen still needs a ticket. That constraint shaped how I built [Sofre](https://sofre.app): the source of truth on the floor is local, and the cloud is a replica that catches up.
 

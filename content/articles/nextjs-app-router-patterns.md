@@ -3,7 +3,10 @@ title: "Next.js App Router Patterns I Use in Production"
 description: "A collection of practical patterns for organizing large Next.js applications with the App Router."
 publishedAt: "2026-06-18"
 tags: ["Next.js", "Architecture", "TypeScript"]
+coverImage: "/images/articles/nextjs-app-router-patterns.png"
 ---
+
+![Next.js App Router Architecture](/images/articles/nextjs-app-router-patterns.png)
 
 The App Router is easy to start and easy to tangle. These are the patterns that have held up for me once a codebase has more than a handful of routes.
 
