@@ -11,15 +11,34 @@ import { prettyCodeOptions } from "./prettyCode";
 const isInternalHref = (href: string) =>
   href.startsWith("/") || href.startsWith("#");
 
+const getHeadingAnchorLabel = (href: string, className?: string) => {
+  if (
+    !href.startsWith("#") ||
+    !className?.split(/\s+/).includes("heading-anchor")
+  ) {
+    return undefined;
+  }
+
+  const sectionId = decodeURIComponent(href.slice(1)).replace(/-/g, " ").trim();
+
+  return sectionId ? `Link to section: ${sectionId}` : "Link to this section";
+};
+
 const markdownComponents: Components = {
-  a: ({ href, children, className }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  a: ({ href, children, className, node: _node, ...props }) => {
     if (!href) {
       return <span className={className}>{children}</span>;
     }
 
+    const headingAnchorLabel = getHeadingAnchorLabel(href, className);
+    const linkProps = headingAnchorLabel
+      ? { ...props, "aria-label": headingAnchorLabel }
+      : props;
+
     if (isInternalHref(href)) {
       return (
-        <Link href={href} className={className}>
+        <Link href={href} className={className} {...linkProps}>
           {children}
         </Link>
       );
@@ -29,6 +48,7 @@ const markdownComponents: Components = {
       <a
         href={href}
         className={className}
+        {...linkProps}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -72,7 +92,6 @@ const MarkdownContent: FC<Props> = async ({ content }) => {
               behavior: "append",
               properties: {
                 className: ["heading-anchor"],
-                ariaLabel: "Link to this section",
               },
             },
           ],

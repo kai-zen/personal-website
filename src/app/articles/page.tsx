@@ -83,9 +83,9 @@ const ArticlesPage: NextPage = async () => {
         </Typography>
       ) : (
         <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-4">
-          {featured && <ArticleCard article={featured} featured />}
+          {featured && <ArticleCard article={featured} featured titleAs="h2" />}
           {rest.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
+            <ArticleCard key={article.slug} article={article} titleAs="h2" />
           ))}
         </div>
       )}

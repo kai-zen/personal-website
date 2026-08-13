@@ -9,10 +9,16 @@ import ArticleCover from "./ArticleCover";
 interface Props {
   article: IArticleItem;
   featured?: boolean;
+  titleAs?: "h2" | "h3";
   className?: string;
 }
 
-const ArticleCard: FC<Props> = ({ article, featured = false, className }) => {
+const ArticleCard: FC<Props> = ({
+  article,
+  featured = false,
+  titleAs = "h3",
+  className,
+}) => {
   const {
     slug,
     title,
@@ -67,7 +73,7 @@ const ArticleCard: FC<Props> = ({ article, featured = false, className }) => {
         </div>
 
         <Typography
-          as="h3"
+          as={titleAs}
           className={cn(
             "font-semibold tracking-tight text-gray-950 transition-colors group-hover:text-gray-700 dark:text-white dark:group-hover:text-gray-200",
             featured
